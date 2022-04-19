@@ -3,7 +3,6 @@ package hwr.oop.examples.imperative.programming;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertTimeoutPreemptively;
 import static org.junit.jupiter.api.Assertions.fail;
 
 class ExceptionsTest {
@@ -41,7 +40,7 @@ class ExceptionsTest {
 
     @Test
     void exceptions_MultipleExceptions_SeparateCatchBlocksForEach() {
-        int[] a = new int[5];
+        int a[] = new int[5];
         try {
             a[5] = 30 / 0;
             fail("unreachable for two reasons");
@@ -54,7 +53,7 @@ class ExceptionsTest {
 
     @Test
     void exceptions_MultipleExceptions_CollapsedBlocksPossible() {
-        int[] a = new int[5];
+        int a[] = new int[5];
         try {
             a[5] = 30 / 0;
             fail("unreachable for two reasons");
@@ -94,10 +93,11 @@ class ExceptionsTest {
     @Test
     void exceptionExample_ThrowsCheckedException_CanBeCaught() {
         ExceptionsExample example = new ExceptionsExample();
+        // fail("Test not yet implemented");  // original exercise
         try {
             example.throwCheckedException();
-            fail("Duh...!");
-        } catch (Exception e) {
+            fail("Should not be reachable");
+        } catch (Exception e) {  // actually required to catch Exception
             e.printStackTrace();
         }
     }
@@ -105,11 +105,15 @@ class ExceptionsTest {
     @Test
     void exceptionExample_ThrowsUncheckedException_CanBeCaught() {
         ExceptionsExample example = new ExceptionsExample();
+        // fail("Test not yet implemented");  // original exercise
         try {
             example.throwUncheckedException();
-            fail("Ich hasse dich auch!");
-        } catch (RuntimeException e) {
+            fail("Should not be reachable");
+        } catch (RuntimeException e) {  // only required to catch RuntimeExceptions
             e.printStackTrace();
         }
     }
+
+
+
 }
