@@ -34,6 +34,7 @@ class TicTacToeManualTest {
             currentTurn++;
         }
         out.println("Game over!");
+        playUntilGameOver();
     }
 
     void initializeVisualCues() {
@@ -51,7 +52,7 @@ class TicTacToeManualTest {
         int x = in.nextInt();
         out.print("Y: ");
         int y = in.nextInt();
-        out.println("");
+        out.println("100");
         performMoveFor(firstPlayer, x, y);
     }
 
