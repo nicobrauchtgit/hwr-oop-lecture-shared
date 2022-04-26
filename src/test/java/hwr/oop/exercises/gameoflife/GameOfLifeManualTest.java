@@ -23,7 +23,7 @@ class GameOfLifeManualTest {
     @Test
     @Disabled("manual test")
     void manualTest() throws InterruptedException {
-        while(true) {
+        while (true) {
             String string = buildConsoleOutput();
             game.proceed();
             System.out.println(string);
