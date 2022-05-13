@@ -52,12 +52,12 @@ class GameOfLifeTest {
     void gameProceed_singleAliveCell_cellIsDead() {
         // given
         Field field = new Field(10);
-        Game game = new Game(field);
+        //Game game = new Game(field);
         Position cellPosition = new Position(5, 5);
         Cell cell = field.getCellAt(cellPosition);
         cell.markAlive();
         // when
-        game.proceed();
+        //game.proceed();
         // then
         assertThat(cell.isAlive()).isFalse();
     }
@@ -66,7 +66,7 @@ class GameOfLifeTest {
     void gameProceed_threeAliveDiagonalCellsAreAlive_cellsBlinkDuringFourGameSteps() {
         // given
         Field field = new Field(10);
-        Game game = new Game(field);
+        //Game game = new Game(field);
         Cell cell_4_5 = field.getCellAt(new Position(4, 5));
         Cell cell_5_5 = field.getCellAt(new Position(5, 5));
         Cell cell_6_5 = field.getCellAt(new Position(6, 5));
@@ -79,22 +79,22 @@ class GameOfLifeTest {
         cell_6_5.markAlive();
 
         // first step
-        game.proceed();
+        //game.proceed();
         assertThat(new Cell[]{cell_5_4, cell_5_5, cell_5_6}).allMatch(Cell::isAlive);
         assertThat(new Cell[]{cell_4_5, cell_6_5}).allMatch(Cell::isDead);
 
         // second step
-        game.proceed();
+        //game.proceed();
         assertThat(new Cell[]{cell_4_5, cell_5_5, cell_6_5}).allMatch(Cell::isAlive);
         assertThat(new Cell[]{cell_5_4, cell_5_6}).allMatch(Cell::isDead);
 
         // third step
-        game.proceed();
+        //game.proceed();
         assertThat(new Cell[]{cell_5_4, cell_5_5, cell_5_6}).allMatch(Cell::isAlive);
         assertThat(new Cell[]{cell_4_5, cell_6_5}).allMatch(Cell::isDead);
 
         // fourth step
-        game.proceed();
+        //game.proceed();
         assertThat(new Cell[]{cell_4_5, cell_5_5, cell_6_5}).allMatch(Cell::isAlive);
         assertThat(new Cell[]{cell_5_4, cell_5_6}).allMatch(Cell::isDead);
     }

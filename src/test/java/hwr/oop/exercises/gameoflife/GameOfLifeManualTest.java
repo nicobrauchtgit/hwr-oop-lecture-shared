@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class GameOfLifeManualTest {
     private static int FIELD_SIZE = 10;
 
-    private Game game;
+    //private Game game;
     private Field field;
     private Position[] positions;
     private Cell[] cells;
@@ -15,7 +15,7 @@ class GameOfLifeManualTest {
     @BeforeEach
     void setUp() {
         field = new Field(FIELD_SIZE);
-        game = new Game(field);
+        //game = new Game(field);
         initializePositions();
         initializeCells();
     }
@@ -25,7 +25,7 @@ class GameOfLifeManualTest {
     void manualTest() throws InterruptedException {
         while (true) {
             String string = buildConsoleOutput();
-            game.proceed();
+            //game.proceed();
             System.out.println(string);
             Thread.sleep(2000);
         }

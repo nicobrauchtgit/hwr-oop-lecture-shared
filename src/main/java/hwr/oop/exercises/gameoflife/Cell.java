@@ -8,8 +8,8 @@ public class Cell {
 
     public Cell[] neighbours = new Cell[8];
 
-    Cell(int x, int y){
-        position = new Position(x, y);
+    Cell(Position position){
+        this.position = position;
     }
 
     public Position getPosition() {
