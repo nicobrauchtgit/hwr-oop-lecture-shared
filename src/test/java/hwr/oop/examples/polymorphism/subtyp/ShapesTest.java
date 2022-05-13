@@ -1,4 +1,4 @@
-package hwr.oop.examples.polymorphism.subtyping;
+package hwr.oop.examples.polymorphism.subtyp;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Nested;
@@ -92,5 +92,27 @@ class ShapesTest {
         }
     }
 
+    @Nested
+    class ParallelogramTest {
+
+        @Test
+        void parallelogram_IsPolymorphicType() {
+            Parallelogram parallelogram = new Parallelogram(5, 6, 48.9);
+            assertThat(parallelogram)
+                    .isInstanceOf(Object.class)
+                    .isInstanceOf(Shape.class)
+                    .isInstanceOf(Quadrangle.class)
+                    .isInstanceOf(Parallelogram.class);
+        }
+
+        @Test
+        void parallelogram_GetNumberOfSides_ReturnsFour() {
+            Shape parallelogram = new Parallelogram(5, 6, 48.9);
+            int numberOfSides = parallelogram.getNumberOfSides();
+            assertThat(numberOfSides).isEqualTo(4);
+
+        }
+
+    }
 
 }

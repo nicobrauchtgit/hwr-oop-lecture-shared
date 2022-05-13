@@ -11,7 +11,7 @@ class Rectangle implements Quadrangle {
 
     @Override
     public double getPerimeterLength() {
-        return 2 * height + 2 * width;
+        return 2 * (height + width);
     }
 
     @Override
