@@ -110,9 +110,69 @@ class ShapesTest {
             Shape parallelogram = new Parallelogram(5, 6, 48.9);
             int numberOfSides = parallelogram.getNumberOfSides();
             assertThat(numberOfSides).isEqualTo(4);
+        }
+
+        @Test
+        void parallelogram_exist() {
+            Shape parallelogram = new Parallelogram(3, 9.428, 45);
+            assertThat(Math.round(parallelogram.getAreaSize())).isEqualTo(20);
+            assertThat(parallelogram.getPerimeterLength()).isEqualTo(24.856);
 
         }
 
     }
 
+    @Nested
+    class TrapezoidTest {
+
+        @Test
+        void trapezoid_IsPolymorphicType() {
+            Trapezoid trapezoid = new Trapezoid(5.0, 6.0, 4.0, 4.0);
+            assertThat(trapezoid)
+                    .isInstanceOf(Object.class)
+                    .isInstanceOf(Shape.class)
+                    .isInstanceOf(Quadrangle.class)
+                    .isInstanceOf(Trapezoid.class);
+        }
+    }
+
+    @Nested
+    class CircleTest {
+
+        @Test
+        void circle_IsPolymorphicType() {
+            Circle circle = new Circle(5.0);
+            assertThat(circle)
+                    .isInstanceOf(Object.class)
+                    .isInstanceOf(Shape.class)
+                    .isInstanceOf(Ellipse.class)
+                    .isInstanceOf(Circle.class);
+        }
+    }
+
+    @Nested
+    class EllipseTest {
+        @Test
+        void ellipse_IsPolymorphicType() {
+            Ellipse ellipse = new ImplementedEllipse(3.0, 4.0);
+            assertThat(ellipse)
+                    .isInstanceOf(Object.class)
+                    .isInstanceOf(Shape.class)
+                    .isInstanceOf(Ellipse.class);
+        }
+    }
+
+    @Nested
+    class RhombusTest {
+        @Test
+        void rhombus_IsPolymorphicType() {
+            Rhombus rhombus = new Rhombus(3.0, 56);
+            assertThat(rhombus)
+                    .isInstanceOf(Object.class)
+                    .isInstanceOf(Shape.class)
+                    .isInstanceOf(Quadrangle.class)
+                    .isInstanceOf(Parallelogram.class)
+                    .isInstanceOf(Rhombus.class);
+        }
+    }
 }

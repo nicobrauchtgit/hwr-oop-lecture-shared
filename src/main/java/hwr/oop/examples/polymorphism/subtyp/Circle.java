@@ -1,16 +1,15 @@
 package hwr.oop.examples.polymorphism.subtyp;
 
-public interface Circle extends Shape, Comparable<Circle> {
+public class Circle extends ImplementedEllipse{
+    private final double radius;
 
-    @Override
-    default int getNumberOfSides() { return 0; }
-
-    default double getDistinctAngles() {
-        return 360.0;
+    public Circle(double radius) {
+        super(radius, radius);
+        this.radius = radius;
     }
 
     @Override
-    default int compareTo(Circle o) {
-        return Double.compare(getAreaSize(), o.getAreaSize());
+    public double getPerimeterLength(){
+        return 2 * Math.PI * radius;
     }
 }

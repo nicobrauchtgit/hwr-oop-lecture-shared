@@ -19,6 +19,6 @@ public class EquilateralTriangle implements Triangle{
 
     @Override
     public double[] getDistinctAngles() {
-        return new double[60];
+        return new double[]{60};
     }
 }

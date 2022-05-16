@@ -27,6 +27,6 @@ public class UnregularTriangle implements Triangle{
 
     @Override
     public double[] getDistinctAngles() {
-        return new double[angleC, angleA, 180 - angleA - angleC];
+        return new double[]{angleC, angleA, 180 - angleA - angleC};
     }
 }

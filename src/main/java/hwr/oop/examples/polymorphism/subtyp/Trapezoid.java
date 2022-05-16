@@ -1,13 +1,13 @@
 package hwr.oop.examples.polymorphism.subtyp;
 
-public class Trapez implements Quadrangle {
+public class Trapezoid implements Quadrangle {
 
     private final RightTriangle leftTriangle;
     private final double top;
     private final double height;
     private final RightTriangle rightTriangle;
 
-    public Trapez(double basisLengthLeft, double height, double top, double basisLengthRight) {
+    public Trapezoid(double basisLengthLeft, double height, double top, double basisLengthRight) {
         this.leftTriangle = new RightTriangle(basisLengthLeft, height);
         this.height = height;
         this.top = top;

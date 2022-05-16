@@ -1,6 +1,6 @@
 package hwr.oop.examples.polymorphism.subtyp;
 
-public interface Circle extends Shape, Comparable<Circle> {
+public interface Ellipse extends Shape, Comparable<ImplementedEllipse> {
 
     @Override
     default int getNumberOfSides() { return (int)Double.POSITIVE_INFINITY; }
@@ -10,7 +10,7 @@ public interface Circle extends Shape, Comparable<Circle> {
     }
 
     @Override
-    default int compareTo(Circle o) {
+    default int compareTo(ImplementedEllipse o) {
         return Double.compare(getAreaSize(), o.getAreaSize());
     }
 }

@@ -23,6 +23,6 @@ public class IsoscelesTriangle implements Triangle{
 
     @Override
     public double[] getDistinctAngles() {
-        return new double[singleAngle, ((180.0 - singleAngle) / 2.0)];
+        return new double[]{singleAngle, ((180.0 - singleAngle) / 2.0)};
     }
 }

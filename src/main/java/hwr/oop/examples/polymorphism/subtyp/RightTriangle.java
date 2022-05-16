@@ -23,7 +23,7 @@ public class RightTriangle implements Triangle{
 
     @Override
     public double[] getDistinctAngles() {
-        return new double[Math.asin(sideA / hypotenuse), Math.asin(sideB / hypotenuse), 90];
+        return new double[] {Math.asin(sideA / hypotenuse), Math.asin(sideB / hypotenuse), 90};
     }
 }
 
