@@ -1,6 +1,5 @@
 package hwr.oop.examples.polymorphism.subtyp;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
@@ -86,8 +85,9 @@ class ShapesTest {
 
         @Test
         void quadrangle_comparable() {
-            Comparable<Quadrangle> first = new Rectangle(1, 2);
-            Comparable<Quadrangle> second = new Rectangle(1, 2);
+            Quadrangle first = new Rectangle(1, 2);
+            Quadrangle second = new Rectangle(1, 2);
+            assertThat(first.compareTo(second)).isZero();
 
         }
     }
@@ -117,62 +117,89 @@ class ShapesTest {
             Shape parallelogram = new Parallelogram(3, 9.428, 45);
             assertThat(Math.round(parallelogram.getAreaSize())).isEqualTo(20);
             assertThat(parallelogram.getPerimeterLength()).isEqualTo(24.856);
-
         }
-
-    }
-
-    @Nested
-    class TrapezoidTest {
 
         @Test
-        void trapezoid_IsPolymorphicType() {
-            Trapezoid trapezoid = new Trapezoid(5.0, 6.0, 4.0, 4.0);
-            assertThat(trapezoid)
-                    .isInstanceOf(Object.class)
-                    .isInstanceOf(Shape.class)
-                    .isInstanceOf(Quadrangle.class)
-                    .isInstanceOf(Trapezoid.class);
+        void parallelogram_GetPerimeterLength_IsFourTimesProvidedSize() {
+            Shape parallelogram = new Parallelogram(42, 1337, 90);
+            double perimeterLength = parallelogram.getPerimeterLength();
+            assertThat(perimeterLength).isEqualTo(42 + 42 + 1337 + 1337);
         }
-    }
-
-    @Nested
-    class CircleTest {
 
         @Test
-        void circle_IsPolymorphicType() {
-            Circle circle = new Circle(5.0);
-            assertThat(circle)
-                    .isInstanceOf(Object.class)
-                    .isInstanceOf(Shape.class)
-                    .isInstanceOf(Ellipse.class)
-                    .isInstanceOf(Circle.class);
+        void parallelogram_GetAreaSize_IsSideLengthSquared() {
+            Shape parallelogram = new Parallelogram(42, 1337, 90);
+            double areaSize = parallelogram.getAreaSize();
+            assertThat(areaSize).isEqualTo(42 * 1337);
+
         }
     }
 
-    @Nested
-    class EllipseTest {
-        @Test
-        void ellipse_IsPolymorphicType() {
-            Ellipse ellipse = new ImplementedEllipse(3.0, 4.0);
-            assertThat(ellipse)
-                    .isInstanceOf(Object.class)
-                    .isInstanceOf(Shape.class)
-                    .isInstanceOf(Ellipse.class);
-        }
-    }
+        @Nested
+        class TrapezoidTest {
 
-    @Nested
-    class RhombusTest {
-        @Test
-        void rhombus_IsPolymorphicType() {
-            Rhombus rhombus = new Rhombus(3.0, 56);
-            assertThat(rhombus)
-                    .isInstanceOf(Object.class)
-                    .isInstanceOf(Shape.class)
-                    .isInstanceOf(Quadrangle.class)
-                    .isInstanceOf(Parallelogram.class)
-                    .isInstanceOf(Rhombus.class);
+            @Test
+            void trapezoid_IsPolymorphicType() {
+                Trapezoid trapezoid = new Trapezoid(5.0, 6.0, 4.0, 4.0);
+                assertThat(trapezoid)
+                        .isInstanceOf(Object.class)
+                        .isInstanceOf(Shape.class)
+                        .isInstanceOf(Quadrangle.class)
+                        .isInstanceOf(Trapezoid.class);
+            }
+
+            @Test
+            void trapezoid_GetNumberOfSides_ReturnsFour() {
+                Shape trapezoid = new Trapezoid(5.0, 6.0, 8.0, 2.0);
+                int numberOfSides = trapezoid.getNumberOfSides();
+                assertThat(numberOfSides).isEqualTo(4);
+            }
+            @Test
+            void trapezoid_exist() {
+                Shape trapezoid = new Trapezoid(3, 4, 12, 3);
+                assertThat(trapezoid.getAreaSize()).isEqualTo(60);
+                assertThat(trapezoid.getPerimeterLength()).isEqualTo(40);
+            }
         }
-    }
-}
+
+            @Nested
+            class CircleTest {
+
+                @Test
+                void circle_IsPolymorphicType() {
+                    Circle circle = new Circle(5.0);
+                    assertThat(circle)
+                            .isInstanceOf(Object.class)
+                            .isInstanceOf(Shape.class)
+                            .isInstanceOf(Ellipse.class)
+                            .isInstanceOf(Circle.class);
+                }
+            }
+
+            @Nested
+            class EllipseTest {
+                @Test
+                void ellipse_IsPolymorphicType() {
+                    Ellipse ellipse = new ImplementedEllipse(3.0, 4.0);
+                    assertThat(ellipse)
+                            .isInstanceOf(Object.class)
+                            .isInstanceOf(Shape.class)
+                            .isInstanceOf(Ellipse.class);
+                }
+            }
+
+            @Nested
+            class RhombusTest {
+                @Test
+                void rhombus_IsPolymorphicType() {
+                    Rhombus rhombus = new Rhombus(3.0, 56);
+                    assertThat(rhombus)
+                            .isInstanceOf(Object.class)
+                            .isInstanceOf(Shape.class)
+                            .isInstanceOf(Quadrangle.class)
+                            .isInstanceOf(Parallelogram.class)
+                            .isInstanceOf(Rhombus.class);
+                }
+            }
+        }
+

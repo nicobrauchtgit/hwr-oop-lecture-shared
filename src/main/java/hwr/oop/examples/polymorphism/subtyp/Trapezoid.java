@@ -21,11 +21,11 @@ public class Trapezoid implements Quadrangle {
 
     @Override
     public double getPerimeterLength() {
-        return leftTriangle.getPerimeterLength() - height + rightTriangle.getPerimeterLength() - height + 2 * top ;
+        return leftTriangle.getPerimeterLength() + rightTriangle.getPerimeterLength() + 2 * (top - height) ;
     }
 
     @Override
     public double getAreaSize() {
-        return leftTriangle.getAreaSize() + rightTriangle.getAreaSize() + 2 * height * top;
+        return leftTriangle.getAreaSize() + rightTriangle.getAreaSize() +  height * top;
     }
 }
