@@ -1,4 +1,4 @@
-package hwr.oop.exercises.flashcard.learning;
+package hwr.oop.exercises.flashcards;
 
 public interface Answer extends Option {
     static Answer create(String optionText) {
