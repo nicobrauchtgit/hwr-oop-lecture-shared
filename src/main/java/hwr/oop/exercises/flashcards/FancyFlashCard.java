@@ -13,7 +13,7 @@ class FancyFlashCard implements FlashCard {
     private final Solution solution;
 
     public FancyFlashCard(Question question, Collection<Answer> answers, Solution solution) {
-        assertValidFlashCard(question, solution, answers);
+        assertValidFlashCard(question, solution);
         this.question = question;
         this.answers = answers;
         this.solution = solution;
@@ -68,15 +68,10 @@ class FancyFlashCard implements FlashCard {
         return Objects.hash(question);
     }
 
-    private void assertValidFlashCard(Question question, Solution solution,
-                                      Collection<Answer> answers) {
+    private void assertValidFlashCard(Question question, Solution solution) {
         if (question == null || solution == null) {
             throw new IllegalArgumentException(
                     "Cannot create FlashCard without Question or Answer");
-        }
-        if (answers == null || answers.contains(solution)) {
-            throw new IllegalArgumentException(
-                    "Answers, if provided, need to contain the solution");
         }
     }
 }
